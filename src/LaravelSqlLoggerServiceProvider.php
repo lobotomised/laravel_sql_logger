@@ -14,7 +14,7 @@ class LaravelSqlLoggerServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/sql-logger.php' => config_path('sql-logger.php'),
-        ]);
+        ], 'laravel-sql-logger-config');
 
         if($this->app->runningInConsole()) {
             $this->commands(LaravelSqlLoggerCommand::class);
