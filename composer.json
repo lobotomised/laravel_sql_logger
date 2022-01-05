@@ -1,0 +1,49 @@
+{
+    "name": "lobotomised/laravel-sql-logger",
+    "description": "Simple way to log your sql query to a log file ",
+    "keywords": [
+        "lobotomised",
+        "laravel",
+        "laravel-sql-logger"
+    ],
+    "homepage": "https://github.com/lobotomised/laravel-sql-logger",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lobotomised",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/console": "^8.0",
+        "illuminate/database": "^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.22",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lobotomised\\LaravelSqlLogger\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lobotomised\\LaravelSqlLogger\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lobotomised\\LaravelSqlLogger\\LaravelSqlLoggerServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
