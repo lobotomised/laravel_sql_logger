@@ -44,7 +44,7 @@ class LaravelSqlLoggerServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'../config/sql-logger.php', 'db_debug'
+            __DIR__.'/../config/sql-logger.php', 'db_debug'
         );
 
     }
