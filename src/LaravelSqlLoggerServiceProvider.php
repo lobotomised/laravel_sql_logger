@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class LaravelSqlLoggerServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             __DIR__.'/../config/sql-logger.php' => config_path('sql-logger.php'),
@@ -38,6 +38,14 @@ class LaravelSqlLoggerServiceProvider extends ServiceProvider
                 logger()->debug(" ---> QUERY DEBUG: ${full_query} <---\n");
             });
         }
+
+    }
+
+    public function register(): void
+    {
+        $this->mergeConfigFrom(
+            __DIR__.'../config/sql-logger.php', 'db_debug'
+        );
 
     }
 }
