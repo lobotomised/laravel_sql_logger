@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Lobotomised\LaravelSqlLogger\Commands\LaravelSqlLoggerCommand;
 use Illuminate\Support\Facades\DB;
 
-class LaravelSqlLoggerProvider extends ServiceProvider
+class LaravelSqlLoggerServiceProvider extends ServiceProvider
 {
     public function boot()
     {
