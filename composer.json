@@ -1,6 +1,6 @@
 {
     "name": "lobotomised/laravel-sql-logger",
-    "description": "Simple way to log your sql query to a log file ",
+    "description": "Simple way to log your sql query to a log file",
     "keywords": [
         "lobotomised",
         "laravel",
@@ -45,5 +45,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
