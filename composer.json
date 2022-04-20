@@ -1,6 +1,6 @@
 {
     "name": "lobotomised/laravel-sql-logger",
-    "description": "Simple way to log your sql query to a log file",
+    "description": "Simple way to log your SQL queries",
     "keywords": [
         "lobotomised",
         "laravel",
