@@ -50,7 +50,7 @@ class LaravelSqlLoggerServiceProvider extends ServiceProvider
                 }
             }
 
-            logger()->debug(" ---> QUERY DEBUG: ${full_query} <---");
+            logger()->debug("---> QUERY DEBUG: ${full_query} <---");
         });
     }
 }

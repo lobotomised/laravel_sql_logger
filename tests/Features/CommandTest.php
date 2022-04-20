@@ -10,7 +10,7 @@ it('can cache check results', function () {
     Log::shouldReceive('debug')
         ->once()
         ->withArgs(function ($message) {
-            return str_contains($message, ' ---> QUERY DEBUG: SHOW VARIABLES LIKE "%version%" <---');
+            return str_contains($message, '---> QUERY DEBUG: SHOW VARIABLES LIKE "%version%" <---');
         });
 
     artisan(LaravelSqlLoggerCommand::class)->assertSuccessful();

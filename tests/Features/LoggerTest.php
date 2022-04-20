@@ -9,7 +9,7 @@ it('log request without binding', function() {
     Log::shouldReceive('debug')
         ->once()
         ->withArgs(function ($message) {
-            return str_contains($message, ' ---> QUERY DEBUG: select * from `users` <---');
+            return str_contains($message, '---> QUERY DEBUG: select * from `users` <---');
         });
 
     DB::table('users')->get();
@@ -19,9 +19,9 @@ it('log request with binding', function() {
     Log::shouldReceive('debug')
         ->once()
         ->withArgs(function ($message) {
-            return str_contains($message, ' ---> QUERY DEBUG: select * from `users` where `foo` = "bar" <---');
+            return str_contains($message, '---> QUERY DEBUG: select * from `users` where `name` = "bar" <---');
         });
 
-    DB::table('users')->where('foo', '=', 'bar')->get();
+    DB::table('users')->where('name', '=', 'bar')->get();
 });
 
