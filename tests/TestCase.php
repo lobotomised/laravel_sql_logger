@@ -1,40 +1,32 @@
 <?php
 
-namespace lobotomised\LaravelSqlLogger\Tests;
+namespace Lobotomised\LaravelSqlLogger\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 use Lobotomised\LaravelSqlLogger\LaravelSqlLoggerServiceProvider;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TestCase extends Orchestra
+abstract class TestCase extends Orchestra
 {
     protected function setUp(): void
     {
         parent::setUp();
-
-        $this->setUpDatabase($this->app);
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
-            LaravelSqlLoggerServiceProvider::class
+            LaravelSqlLoggerServiceProvider::class,
         ];
     }
 
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         Schema::dropAllTables();
 
         $app['config']->set('sql-logger.db_debug', true);
-    }
 
-    protected function setUpDatabase($app)
-    {
-        $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('foo');
-        });
+        $migration = include __DIR__ . '/Fixtures/database/migrations/create_user_table.php';
+        $migration->up();
     }
 }
