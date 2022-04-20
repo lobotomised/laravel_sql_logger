@@ -42,8 +42,7 @@ class LaravelSqlLoggerServiceProvider extends ServiceProvider
 
             foreach (str_split((string)$query->sql) as $char) {
                 if ($char === '?') {
-                    $full_query = $full_query . '"' .
-                        $query->bindings[$position] . '"';
+                    $full_query = $full_query . '"' . $query->bindings[$position] . '"';
                     $position++;
                 } else {
                     $full_query .= $char;

@@ -7,9 +7,9 @@ jobs:
       mysql:
         image: mariadb:latest
         env:
-          MYSQL_USER: user
-          MYSQL_PASSWORD: secret
-          MYSQL_DATABASE: sql_logger
+          MYSQL_USER: laravel
+          MYSQL_PASSWORD: laravel
+          MYSQL_DATABASE: laravel_test
           MYSQL_ROOT_PASSWORD: topsecret
         ports:
           - 3306
@@ -19,9 +19,9 @@ jobs:
       APP_ENV: testing
       DB_CONNECTION: mysql
       DB_HOST: 127.0.0.1
-      DB_DATABASE: sql_logger
-      DB_USERNAME: user
-      DB_PASSWORD: secret
+      DB_DATABASE: laravel_test
+      DB_USERNAME: laravel
+      DB_PASSWORD: laravel
     strategy:
       fail-fast: false
       matrix:
