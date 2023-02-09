@@ -13,7 +13,13 @@ class LaravelSqlLoggerCommand extends Command
 
     public function handle(): int
     {
-        $results = DB::select(DB::raw('SHOW VARIABLES LIKE "%version%"'));
+        $query = DB::raw('SHOW VARIABLES LIKE "%version%"');
+
+        if (is_object($query) && method_exists($query, 'getValue')) {
+            $query = $query->getValue(DB::connection()->getQueryGrammar());
+        }
+
+        $results = DB::select($query);
 
         $table = [];
 

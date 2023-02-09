@@ -2,9 +2,9 @@
 
 namespace Lobotomised\LaravelSqlLogger\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
-use Lobotomised\LaravelSqlLogger\LaravelSqlLoggerServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Lobotomised\LaravelSqlLogger\LaravelSqlLoggerServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
@@ -26,7 +26,7 @@ abstract class TestCase extends Orchestra
 
         $app['config']->set('sql-logger.db_debug', true);
 
-        $migration = include __DIR__ . '/Fixtures/database/migrations/create_user_table.php';
+        $migration = include __DIR__.'/Fixtures/database/migrations/create_user_table.php';
         $migration->up();
     }
 }
